@@ -93,6 +93,11 @@ const FlowEditor = (props) => {
     showNodeStatus(nodeStatusList);
   };
 
+  const handleSave = () => {
+    const data = graph.toJSON();
+    console.log('save data', data);
+  };
+
   // 显示节点状态
   const showNodeStatus = async (statusList) => {
     const status = statusList.shift();
@@ -133,7 +138,7 @@ const FlowEditor = (props) => {
   return (
     <div className={styles.container}>
       <EditorContext.Provider
-        value={{ graph, setGraph, commandManager, runStart }}
+        value={{ graph, setGraph, commandManager, runStart, handleSave }}
       >
         <TopCommand className={styles.command} />
         <Panel className={styles.panel} />

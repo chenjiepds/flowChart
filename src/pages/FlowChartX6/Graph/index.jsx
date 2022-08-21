@@ -1,13 +1,16 @@
 import { Graph, Shape } from '@antv/x6';
 import { pick } from 'lodash';
-import { useContext, useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { EditorContext } from '../EditorContext';
+import ContextMenu from './ContextMenu';
+
 import commands from './command';
 
 const GraphFlow = (props) => {
   const { container } = props;
   const graphRef = useRef(null);
   const graphDomRef = useRef(null);
+  const [menuDisabled, seMenuDisabled] = useState(true);
 
   const { setGraph, commandManager } = useContext(EditorContext);
 
@@ -147,7 +150,12 @@ const GraphFlow = (props) => {
 
     setGraph(graphRef.current);
   };
-  return <div ref={graphDomRef} {...pick(props, ['style', 'className'])}></div>;
+
+  return (
+    <ContextMenu graph={graphRef.current}>
+      <div ref={graphDomRef} {...pick(props, ['style', 'className'])}></div>
+    </ContextMenu>
+  );
 };
 
 export default GraphFlow;

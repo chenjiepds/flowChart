@@ -20,7 +20,9 @@ const Item = Toolbar.Item;
 const Group = Toolbar.Group;
 
 const TopCommand = () => {
-  const { commandManager, graph, runStart } = useContext(EditorContext);
+  const { commandManager, graph, runStart, handleSave } =
+    useContext(EditorContext);
+
   const onClick = (name) => {
     commandManager.execute(graph, name);
   };
@@ -35,7 +37,7 @@ const TopCommand = () => {
         >
           运行
         </Button>
-        <Button>保存</Button>
+        <Button onClick={() => handleSave()}>保存</Button>
       </>
     );
   };

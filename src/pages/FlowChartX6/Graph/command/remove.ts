@@ -5,6 +5,7 @@ const removeCommand = {
 
   execute(graph) {
     const cells = graph.getSelectedCells();
+    console.log(123, cells);
     if (cells.length) {
       graph.removeCells(cells);
     }
