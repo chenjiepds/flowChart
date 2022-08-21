@@ -1,0 +1,60 @@
+.node {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid #c2c8d5;
+  border-left: 4px solid #5f95ff;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 1px rgb(0 0 0 / 6%);
+  // margin-left: 40px;
+
+  &.success {
+    border-left: 4px solid #52c41a;
+  }
+
+  &.failed {
+    border-left: 4px solid #ff4d4f;
+  }
+
+  &.running .status img {
+    animation: spin 1s linear infinite;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-left: 8px;
+  }
+
+  .label {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 104px;
+    margin-left: 8px;
+    color: #666;
+    font-size: 12px;
+  }
+
+  .status {
+    flex-shrink: 0;
+  }
+}
+
+@keyframes running-line {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

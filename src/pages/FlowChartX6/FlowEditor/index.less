@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  border: 1px solid #dfe3e8;
+  position: relative;
+
+  .panel {
+    width: 220px;
+    height: 100vh;
+    position: relative;
+    border-right: 1px solid #dfe3e8;
+  }
+
+  .graph {
+    width: calc(100% - 220px);
+    flex: 1;
+    height: 100vh;
+    position: relative;
+  }
+
+  .command {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 220px);
+    border-left: 1px solid #dfe3e8;
+    background-color: #fff;
+    z-index: 999;
+  }
+}
